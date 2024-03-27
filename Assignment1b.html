@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <style>
+        :root {
+            --main-bg-color: #f0f0f0;
+            --main-text-color: #333;
+            --header-bg-color: #007bff;
+            --header-text-color: #fff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: var(--main-bg-color);
+            color: var(--main-text-color);
+        }
+
+        header {
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .project {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--header-bg-color);
+            color: var(--header-text-color);
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 768px) {
+            main {
+                padding: 10px;
+            }
+            .project {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>My Portfolio</h1>
+    </header>
+    <main>
+        <section class="project">
+            <h2>Project 1</h2>
+            <p>Description of Project 1</p>
+        </section>
+        <section class="project">
+            <h2>Project 2</h2>
+            <p>Description of Project 2</p>
+        </section>
+        <section class="project">
+            <h2>Project 3</h2>
+            <p>Description of Project 3</p>
+        </section>
+        <section class="project">
+            <h2>Project 4</h2>
+            <p>Description of Project 4</p>
+        </section>
+        <section class="project">
+            <h2>Project 5</h2>
+            <p>Description of Project 5</p>
+        </section>
+        <section class="project">
+            <h2>Project 6</h2>
+            <p>Description of Project 6</p>
+        </section>
+    </main>
+</body>
+</html>
