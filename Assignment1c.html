@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Form with Validation</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+  }
+  
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border-radius: 3px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 14px;
+  }
+  
+  .success-message {
+    color: green;
+    font-size: 14px;
+  }
+  
+  .submit-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  
+  .submit-btn:hover {
+    background-color: #0056b3;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2><center> Form </center></h2>
+  <form id="myForm">
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name">
+      <div id="nameError" class="error-message"></div>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email">
+      <div id="emailError" class="error-message"></div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password">
+      <div id="passwordError" class="error-message"></div>
+    </div>
+    <button type="submit" class="submit-btn">Submit</button>
+    <div id="successMessage" class="success-message"></div>
+  </form>
+</div>
+
+<script>
+  const form = document.getElementById('myForm');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const nameError = document.getElementById('nameError');
+  const emailError = document.getElementById('emailError');
+  const passwordError = document.getElementById('passwordError');
+  const successMessage = document.getElementById('successMessage');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    let isValid = true;
+
+    if (nameInput.value === '') {
+      nameError.textContent = 'Name is required';
+      isValid = false;
+    } else {
+      nameError.textContent = '';
+    }
+
+    if (emailInput.value === '') {
+      emailError.textContent = 'Email is required';
+      isValid = false;
+    } else if (!isValidEmail(emailInput.value)) {
+      emailError.textContent = 'Please enter a valid email address';
+      isValid = false;
+    } else {
+      emailError.textContent = '';
+    }
+
+    if (passwordInput.value === '') {
+      passwordError.textContent = 'Password is required';
+      isValid = false;
+    } else {
+      passwordError.textContent = '';
+    }
+
+    if (isValid) {
+      successMessage.textContent = 'Form submitted successfully!';
+      form.reset();
+    }
+  });
+
+  function isValidEmail(email) {
+    const re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
+</script>
+</body>
+</html>
